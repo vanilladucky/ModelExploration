@@ -173,8 +173,8 @@ class ExploreModel:
 
 #---------------------------------------Testing---------------------------------------#
 
-
-df = pd.read_csv('/Users/kimhyunbin/Documents/My own project (Python)/simplysklearn/tests/regression.csv')
+"""
+df = pd.read_csv('file_name')
 
 model = ExploreModel(df, df.columns.tolist()[1:-1], 'SalePrice', PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, OutputType='regression')
 model.fit()
@@ -182,5 +182,5 @@ model.calculate_accuracy()
 model.plot('mean_squared_error')
 print(model.outlier_values) # Those that were removed 
 
-
+"""
 
