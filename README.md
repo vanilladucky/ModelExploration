@@ -55,9 +55,9 @@ Documentation coming soon.
 
 ## Authors
 
-Kim Hyun Bin 
-KIMH0004@e.ntu.edu.sg
-[Kaggle](https://www.kaggle.com/kimmik123)
+* Kim Hyun Bin 
+* KIMH0004@e.ntu.edu.sg
+* [Kaggle](https://www.kaggle.com/kimmik123)
 
 ## Version History
 
