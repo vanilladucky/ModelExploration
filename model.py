@@ -17,8 +17,8 @@ from sklearn.ensemble import GradientBoostingClassifier, AdaBoostClassifier, Ran
 from sklearn.neural_network import MLPRegressor, MLPClassifier
 from tqdm import tqdm
 
-from metrics import *
-from plot import *
+from simplysklearn.metrics import *
+from simplysklearn.plot import *
 
 
 class ExploreModel:
