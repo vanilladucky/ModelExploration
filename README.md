@@ -1,4 +1,4 @@
-# lazyeval
+# simplysklearn
 
 Python package to automate machine learning process to showcase metric values for nearly all Scikit-Learn's models. 
 
@@ -23,14 +23,14 @@ The main usage should be to assist the user by assessing the performances of myr
 * Programming Language: Python
 * License: MIT
 * Operating System: Independent
-* [Dependencies](https://github.com/vanilladucky/lazyeval/blob/main/requirements.txt)
+* [Dependencies](https://github.com/vanilladucky/simplysklearn/blob/main/requirements.txt)
 
 ### Installing
 
 * How/where to download your program
 * Any modifications needed to be made to files/folders
 ```
-pip install lazyeval==0.0.9
+pip install simplysklearn==0.0.1
 ```
 The python package website can be accessed [here](https://pypi.org/project/lazyeval/0.0.9/) 
 
@@ -65,8 +65,6 @@ Documentation coming soon.
 
 ## Version History
 
-* 0.0.9
-    * Various bug fixes and logic corrections
 * 0.0.1
     * Initial Release
 
