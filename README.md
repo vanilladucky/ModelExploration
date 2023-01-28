@@ -18,11 +18,10 @@ It substitues the tiring initial phase of any ML project.
 
 * Describe any prerequisites, libraries, OS version, etc., needed before installing program.
 * ex. Windows 10
-
-Programming Language: Python
-License: MIT
-Operating System: Independent
-Libraries: [link]
+* Programming Language: Python
+* License: MIT
+* Operating System: Independent
+* Libraries: [link]
 
 ### Installing
 
