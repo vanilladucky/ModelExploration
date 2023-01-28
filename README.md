@@ -23,7 +23,7 @@ The main usage should be to assist the user by assessing the performances of myr
 * Programming Language: Python
 * License: MIT
 * Operating System: Independent
-* Libraries: [link]
+* [Dependencies](https://github.com/vanilladucky/lazyeval/blob/main/requirements.txt)
 
 ### Installing
 
