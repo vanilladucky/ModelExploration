@@ -5,6 +5,7 @@ Python package to automate machine learning process to showcase metric values fo
 ## Description
 
 As Bill Gates once said, “I choose a lazy person to do a hard job. Because a lazy person will find an easy way to do it.”.
+
 After numerous hours, days, weeks and months spent on Kaggle, I was inspired to sum up all the repetitive and tedious process to one single package. 
 For any machine learning projects, the user must perform data manipulations, check the dataset is all set for models.
 After that, they must fit it into models and take note of how the model performs. 
