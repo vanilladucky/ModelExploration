@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: simplysklearn
-Version: 0.0.5
-Summary: A python package to automate machine learning process to showcase metric values in an instance
+Version: 0.0.6
+Summary: Python package to automate machine learning process to showcase metric values for nearly all Scikit-Learn's models.
 Home-page: https://github.com/vanilladucky/simplysklearn
 Author: Kim Hyun Bin
 Author-email: KIMH0004@e.ntu.edu.sg
@@ -95,7 +95,7 @@ model.calculate_accuracy()
 model.plot('mean_squared_error')
 print(model.outlier_values)
 ```
-
+![image](https://user-images.githubusercontent.com/77542415/215264939-2daae110-f53b-4538-9be3-1f0d936dc9b9.png)
 
 ## Documentation
 
