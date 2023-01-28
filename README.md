@@ -36,7 +36,6 @@ The python package website can be accessed [here](https://pypi.org/project/lazye
 
 ### Executing program
 
-To run the program, it is mostly like any other machine learning libraries out there. 
 ```
 from lazyeval.model import ExploreModel
 ```
@@ -70,4 +69,4 @@ Documentation coming soon.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the LICENSE file for details

@@ -3,14 +3,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
     
 setuptools.setup(
-    name="lazyeval", 
-    version="0.0.9",
+    name="simplysklearn", 
+    version="0.0.1",
     author="Kim Hyun Bin",
     author_email="KIMH0004@e.ntu.edu.sg",
     description="A python package to automate machine learning process to showcase metric values in an instance",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/vanilladucky/ModelExploration",
+    url="https://github.com/vanilladucky/simplysklearn",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
