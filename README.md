@@ -32,6 +32,11 @@ The main usage should be to assist the user by assessing the performances of myr
 * Fits the engineered dataset on myriad of Scikit-Learn models. 
 * Depending on what metric you want to observe, will plot you a colorful comparison of metrics of different models. 
 
+## Future Improvements 
+
+* Automated hyperparameter tuning process
+* Option to display feature importances 
+
 ## Getting Started
 
 ### Dependencies
@@ -53,17 +58,29 @@ The python package website can be accessed [here](https://pypi.org/project/simpl
 ```
 from simplysklearn.model import ExploreModel
 ```
-## Example 
+
+## Classification Example 
 ```
 import pandas as pd
-df = pd.read_csv('classification.csv')
-model = ExploreModel(df, df.columns.tolist()[2:], 'Survived', PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, OutputType='classification')
+df = pd.read_csv('titanic.csv')
+model = ExploreModel(df, feature_columns_list, 'Survived', PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, OutputType='classification')
 model.fit()
 model.calculate_accuracy()
 model.plot('accuracy_score')
 print(model.outlier_values)
 ```
 ![image](https://user-images.githubusercontent.com/77542415/215261264-a14ed13e-9bdc-4d76-b280-b1040c7ab74c.png)
+
+## Regression Example
+```
+import pandas as pd
+df = pd.read_csv('housing_prices.csv')
+model = ExploreModel(df, feature_columns_list, 'SalePrice', PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, OutputType='regression')
+model.fit()
+model.calculate_accuracy()
+model.plot('mean_squared_error')
+print(model.outlier_values)
+```
 
 
 ## Documentation

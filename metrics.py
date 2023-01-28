@@ -16,18 +16,17 @@ class Score():
                 key = keys[i] # key => model names 
                 y_true, y_pred = self.data[key][0], self.data[key][1]
                 self.res[key] = {}
-                if y_pred != None:
-                    self.res[key]['explained_variance'] = explained_variance_score(y_true, y_pred)
-                    self.res[key]['max_error'] = max_error(y_true, y_pred)
-                    self.res[key]['mean_absolute_error'] = mean_absolute_error(y_true, y_pred)
-                    self.res[key]['mean_squared_error'] = mean_squared_error(y_true, y_pred)
-                    self.res[key]['mean_squared_log_error'] = mean_squared_log_error(minmax_scale(y_true, feature_range=(0,1)), minmax_scale(y_pred, feature_range=(0,1)))
-                    self.res[key]['median_absolute_error'] = median_absolute_error(y_true, y_pred)
-                    self.res[key]['r2_score'] = r2_score(y_true, y_pred)
-                    self.res[key]['mean_absolute_percentage_error'] = mean_absolute_percentage_error(y_true, y_pred)
-                    self.res[key]['d2_absolute_error_score'] = d2_absolute_error_score(y_true, y_pred)
-                    self.res[key]['d2_pinball_score'] = d2_pinball_score(y_true, y_pred)
-                    self.res[key]['d2_tweedie_score'] = d2_tweedie_score(y_true, y_pred)
+                self.res[key]['explained_variance'] = explained_variance_score(y_true, y_pred)
+                self.res[key]['max_error'] = max_error(y_true, y_pred)
+                self.res[key]['mean_absolute_error'] = mean_absolute_error(y_true, y_pred)
+                self.res[key]['mean_squared_error'] = mean_squared_error(y_true, y_pred)
+                self.res[key]['mean_squared_log_error'] = mean_squared_log_error(minmax_scale(y_true, feature_range=(0,1)), minmax_scale(y_pred, feature_range=(0,1)))
+                self.res[key]['median_absolute_error'] = median_absolute_error(y_true, y_pred)
+                self.res[key]['r2_score'] = r2_score(y_true, y_pred)
+                self.res[key]['mean_absolute_percentage_error'] = mean_absolute_percentage_error(y_true, y_pred)
+                self.res[key]['d2_absolute_error_score'] = d2_absolute_error_score(y_true, y_pred)
+                self.res[key]['d2_pinball_score'] = d2_pinball_score(y_true, y_pred)
+                self.res[key]['d2_tweedie_score'] = d2_tweedie_score(y_true, y_pred)
 
         else: # Task is classification 
             for i in tqdm(range(len(self.data))): # Looping over different models 

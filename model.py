@@ -17,8 +17,8 @@ from sklearn.ensemble import GradientBoostingClassifier, AdaBoostClassifier, Ran
 from sklearn.neural_network import MLPRegressor, MLPClassifier
 from tqdm import tqdm
 
-from simplysklearn.metrics import *
-from simplysklearn.plot import *
+from metrics import *
+from plot import *
 
 
 class ExploreModel:
@@ -173,14 +173,14 @@ class ExploreModel:
 
 #---------------------------------------Testing---------------------------------------#
 
-"""
-df = pd.read_csv('model-exploration/classification.csv')
 
-model = ExploreModel(df, df.columns.tolist()[2:], 'Survived', PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, OutputType='classification')
+df = pd.read_csv('/Users/kimhyunbin/Documents/My own project (Python)/simplysklearn/tests/regression.csv')
+
+model = ExploreModel(df, df.columns.tolist()[1:-1], 'SalePrice', PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, OutputType='regression')
 model.fit()
 model.calculate_accuracy()
-model.plot('accuracy_score')
+model.plot('mean_squared_error')
 print(model.outlier_values) # Those that were removed 
-"""
+
 
 
