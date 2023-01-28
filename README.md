@@ -37,7 +37,7 @@ The python package website can be accessed [here](https://pypi.org/project/lazye
 ### Executing program
 
 ```
-from lazyeval.model import ExploreModel
+from simplysklearn.model import ExploreModel
 ```
 ## Example 
 ```
