@@ -27,12 +27,10 @@ The main usage should be to assist the user by assessing the performances of myr
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
 ```
-pip install simplysklearn==0.0.1
+pip install simplysklearn
 ```
-The python package website can be accessed [here](https://pypi.org/project/lazyeval/0.0.9/) 
+The python package website can be accessed [here](https://pypi.org/project/simplysklearn/) 
 
 ### Executing program
 
