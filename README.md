@@ -46,6 +46,8 @@ model.calculate_accuracy()
 model.plot('accuracy_score')
 print(model.outlier_values)
 ```
+![image](https://user-images.githubusercontent.com/77542415/215261264-a14ed13e-9bdc-4d76-b280-b1040c7ab74c.png)
+
 
 ## Documentation
 
