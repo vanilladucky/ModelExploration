@@ -81,7 +81,7 @@ model.calculate_accuracy()
 model.plot('mean_squared_error')
 print(model.outlier_values)
 ```
-![image](https://github.com/vanilladucky/simplysklearn/blob/main/tests/regression.png)
+![alt text](https://github.com/vanilladucky/simplysklearn/blob/main/tests/regression.png)
 
 ## Documentation
 
