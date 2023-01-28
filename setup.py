@@ -7,7 +7,7 @@ setuptools.setup(
     version="0.0.5",
     author="Kim Hyun Bin",
     author_email="KIMH0004@e.ntu.edu.sg",
-    description="A python package to automate machine learning process to showcase metric values in an instance",
+    description="Python package to automate machine learning process to showcase metric values for nearly all Scikit-Learn's models.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/vanilladucky/simplysklearn",
