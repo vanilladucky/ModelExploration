@@ -1,6 +1,16 @@
-# simplysklearn
+<div align="center">
+<h1>SIMPLYSKLEARN</h1>
+<br>
 
-Python package to automate machine learning process to showcase metric values for nearly all Scikit-Learn's models. 
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
+<br>
+
+<p>Time to even automate your machine learning process!
+
+<br>
+<br>
+</div>
 
 ## Description
 
@@ -15,6 +25,12 @@ This package would mainly be beneficial to those recently starting out in the fi
 It is probably unsuitable for highly complex models or datasets. 
 
 The main usage should be to assist the user by assessing the performances of myriad of models.
+
+## What it provides
+
+* Prepares datatset by takeing care of categorical feature by one-hot-encoding and numerical feature by scaling.
+* Fits the engineered dataset on myriad of Scikit-Learn models. 
+* Depending on what metric you want to observe, will plot you a colorful comparison of metrics of different models. 
 
 ## Getting Started
 
