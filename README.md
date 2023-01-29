@@ -90,7 +90,9 @@ Documentation coming soon.
 ## Contrbuting
 
 Contributions are very much welcomed from everyone! 
+
 Just make sure to fork this repo, make changes and push.
+
 When you have created a pull request, we can take a look and improve on this package! ^_^
 
 ## Authors
