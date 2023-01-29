@@ -85,7 +85,7 @@ print(model.outlier_values)
 
 ## Documentation
 
-Documentation coming soon.
+[Documentation](https://simplysklearn.readthedocs.io/en/latest/) can be accessed here.
 
 ## Contrbuting
 
@@ -103,9 +103,11 @@ When you have created a pull request, we can take a look and improve on this pac
 
 ## Version History
 
+* 0.0.5
+    * Various regression bug fixes(2023.01.29)
 * 0.0.1
-    * Initial Release
+    * Initial Release (2023.01.28)
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the MIT License - see the LICENSE file for details.
