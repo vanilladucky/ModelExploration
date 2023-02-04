@@ -135,6 +135,7 @@ class Regression:
 
     def plot(self, metric): # Should plot the metrics
 
+        self.calculate_accuracy() # Would remove the unnecessary step of performing .calculate_accuracy() by the user
         plot = Plot(self.Scores, metric)
         plot.calculate()
         self.outlier_values = plot.display()
