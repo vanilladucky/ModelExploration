@@ -56,16 +56,15 @@ The python package website can be accessed [here](https://pypi.org/project/simpl
 ### Executing program
 
 ```
-from simplysklearn.model import ExploreModel
+from simplysklearn.classification.classification import Classification
+from simplysklearn.regression.regression import Regression
 ```
 
 ## Classification Example 
 ```
-import pandas as pd
 df = pd.read_csv('titanic.csv')
-model = ExploreModel(df, feature_columns_list, 'Survived', PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, OutputType='classification')
+model = Classification(df, feature_columns_list, target_column)
 model.fit()
-model.calculate_accuracy()
 model.plot('accuracy_score')
 print(model.outlier_values)
 ```
@@ -73,11 +72,9 @@ print(model.outlier_values)
 
 ## Regression Example
 ```
-import pandas as pd
 df = pd.read_csv('housing_prices.csv')
-model = ExploreModel(df, feature_columns_list, 'SalePrice', PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, OutputType='regression')
+model = Regression(df, feature_columns_list, target_column)
 model.fit()
-model.calculate_accuracy()
 model.plot('mean_squared_error')
 print(model.outlier_values)
 ```
@@ -93,6 +90,8 @@ Contributions are very much welcomed from everyone!
 
 Just make sure to fork this repo, make changes and push.
 
+Or you are always welcome to contact me via email!
+
 When you have created a pull request, we can take a look and improve on this package! ^_^
 
 ## Authors
@@ -102,6 +101,9 @@ When you have created a pull request, we can take a look and improve on this pac
 * [Kaggle](https://www.kaggle.com/kimmik123)
 
 ## Version History
+
+* 0.0.11
+    * Separation of Regression and Classification for clarify (2023.02.04)
 
 * 0.0.5
     * Various regression bug fixes(2023.01.29)
