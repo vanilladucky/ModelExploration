@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: simplysklearn
-Version: 0.0.7
+Version: 0.0.8
 Summary: Python package to automate machine learning process to showcase metric values for nearly all Scikit-Learn's models.
 Home-page: https://github.com/vanilladucky/simplysklearn
 Author: Kim Hyun Bin

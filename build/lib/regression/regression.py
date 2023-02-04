@@ -24,9 +24,6 @@ from simplysklearn.plot import *
 class ExploreModel:
     def __init__(self, data, FeatureList, Target, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42):
         # Any possible parameters 
-        if not type(self.PredictProba) is bool:
-            raise TypeError("Only Boolean variables accepted for PredictProba parameter")
-
         self.OutputType = 'regression'
         self.FeatureList = FeatureList
 
@@ -63,7 +60,7 @@ class ExploreModel:
         ['Gradient Boosting Regressor', GradientBoostingRegressor()], ['XGBRegressor', xgb.XGBRegressor()]]
         self.Neural_Regression_Models = [['MLP Regressor', MLPRegressor()]]
 
-    def __prepare_data(self): # Private Method 
+    def __prepare_data(self, numerical_method = StandardScaler(), categorical_method = OneHotEncoder(handle_unknown='ignore', sparse_output=False)): # Private Method 
         df = self.df[self.FeatureList].copy()
 
         numerical_df = df.select_dtypes(include=['int', 'float'])
@@ -71,12 +68,12 @@ class ExploreModel:
 
         num_pipe = make_pipeline(
             SimpleImputer(strategy='median'),
-            StandardScaler()
+            numerical_method
         )
         # pipeline for categorical columns
         cat_pipe = make_pipeline(
             SimpleImputer(strategy='constant', fill_value='N/A'),
-            OneHotEncoder(handle_unknown='ignore', sparse_output=False)
+            categorical_method
         )
 
         # combine both the pipelines
@@ -95,8 +92,8 @@ class ExploreModel:
 
         return X_train, X_test, y_train, y_test
 
-    def fit(self):
-        full_pipe = self.__prepare_data()
+    def fit(self, numerical_method = StandardScaler(), categorical_method = OneHotEncoder(handle_unknown='ignore', sparse_output=False)): # Able to choose methods to scale features 
+        full_pipe = self.__prepare_data(numerical_method , categorical_method)
 
         X_train, X_test, y_train, y_test = self.__split()
 
