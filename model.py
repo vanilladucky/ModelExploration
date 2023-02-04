@@ -174,13 +174,12 @@ class ExploreModel:
 #---------------------------------------Testing---------------------------------------#
 
 """
+from simplysklearn.regression.regression import Regression
 df = pd.read_csv('file_name')
-
-model = ExploreModel(df, df.columns.tolist()[1:-1], 'SalePrice', PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, OutputType='regression')
+model = Regression(df, df.columns.tolist()[1:-1], 'SalePrice', EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3)
 model.fit()
 model.calculate_accuracy()
 model.plot('mean_squared_error')
 print(model.outlier_values) # Those that were removed 
-
 """
 

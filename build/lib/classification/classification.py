@@ -21,7 +21,7 @@ from simplysklearn.metrics import *
 from simplysklearn.plot import *
 
 
-class ExploreModel:
+class Classification:
     def __init__(self, data, FeatureList, Target, PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42):
         # Any possible parameters 
         self.PredictProba = PredictProba
