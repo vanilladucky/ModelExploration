@@ -125,7 +125,7 @@ class Regression:
 
         return self.PredictedVal # A dictionary of name, predicted values, actual values 
 
-    def calculate_accuracy(self):
+    def __calculate_accuracy(self):
 
         score = Score(self.PredictedVal, self.OutputType)    
         self.Scores = score.calculate() # Contains dict{Name-of-model: {metrics_name:metrics_val} }
@@ -135,7 +135,7 @@ class Regression:
 
     def plot(self, metric): # Should plot the metrics
 
-        self.calculate_accuracy() # Would remove the unnecessary step of performing .calculate_accuracy() by the user
+        self.__calculate_accuracy() # Would remove the unnecessary step of performing .calculate_accuracy() by the user
         plot = Plot(self.Scores, metric)
         plot.calculate()
         self.outlier_values = plot.display()

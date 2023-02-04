@@ -134,7 +134,7 @@ class Classification:
 
         return self.PredictedVal # A dictionary of name, predicted values, actual values 
 
-    def calculate_accuracy(self):
+    def __calculate_accuracy(self):
 
         score = Score(self.PredictedVal, self.OutputType)    
         self.Scores = score.calculate() # Contains dict{Name-of-model: {metrics_name:metrics_val} }
@@ -144,6 +144,7 @@ class Classification:
 
     def plot(self, metric): # Should plot the metrics
 
+        self.__calculate_accuracy()
         plot = Plot(self.Scores, metric)
         plot.calculate()
         self.outlier_values = plot.display()
