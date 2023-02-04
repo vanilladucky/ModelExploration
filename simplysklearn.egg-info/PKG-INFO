@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: simplysklearn
-Version: 0.0.6
+Version: 0.0.7
 Summary: Python package to automate machine learning process to showcase metric values for nearly all Scikit-Learn's models.
 Home-page: https://github.com/vanilladucky/simplysklearn
 Author: Kim Hyun Bin
@@ -99,7 +99,15 @@ print(model.outlier_values)
 
 ## Documentation
 
-Documentation coming soon.
+[Documentation](https://simplysklearn.readthedocs.io/en/latest/) can be accessed here.
+
+## Contrbuting
+
+Contributions are very much welcomed from everyone! 
+
+Just make sure to fork this repo, make changes and push.
+
+When you have created a pull request, we can take a look and improve on this package! ^_^
 
 ## Authors
 
@@ -109,9 +117,11 @@ Documentation coming soon.
 
 ## Version History
 
+* 0.0.5
+    * Various regression bug fixes(2023.01.29)
 * 0.0.1
-    * Initial Release
+    * Initial Release (2023.01.28)
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the MIT License - see the LICENSE file for details.

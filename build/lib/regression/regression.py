@@ -24,6 +24,9 @@ from simplysklearn.plot import *
 class ExploreModel:
     def __init__(self, data, FeatureList, Target, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42):
         # Any possible parameters 
+        if not type(self.PredictProba) is bool:
+            raise TypeError("Only Boolean variables accepted for PredictProba parameter")
+
         self.OutputType = 'regression'
         self.FeatureList = FeatureList
 

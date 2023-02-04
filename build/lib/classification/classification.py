@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import make_pipeline
+from sklearn.pipeline import make_pipeline, Pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
 import xgboost as xgb
@@ -22,9 +22,13 @@ from simplysklearn.plot import *
 
 
 class ExploreModel:
-    def __init__(self, data, FeatureList, Target, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42):
+    def __init__(self, data, FeatureList, Target, PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42):
         # Any possible parameters 
-        self.OutputType = 'regression'
+        self.PredictProba = PredictProba
+        if not type(self.PredictProba) is bool:
+            raise TypeError("Only Boolean variables accepted for PredictProba parameter")
+
+        self.OutputType = 'classification'
         self.FeatureList = FeatureList
 
         if len(self.FeatureList) <= 0:
@@ -52,13 +56,12 @@ class ExploreModel:
         self.Scores = {}
         self.outlier_values = {}
 
-        self.Regression_Models = [['Linear Regression', LinearRegression()], ['Ridge', Ridge()], ['Lasso', Lasso()], ['ElasticNet', ElasticNet()], 
-        ['Bayesian Ridge', BayesianRidge()], ['ARDRegression', ARDRegression()], ['SGDRegressor', SGDRegressor()], 
-        ['Passive Aggressive Regressor', PassiveAggressiveRegressor()], ['Perceptron', Perceptron()], ['SVR', svm.SVR()], ['Gaussian Process Regressor', GaussianProcessRegressor()], 
-        ['Decision Tree Regressor', DecisionTreeRegressor()]]
-        self.Ensemble_Regression_Models = [['Random Forest Regressor', RandomForestRegressor()], ['Ada Boost Regressor', AdaBoostRegressor()],
-        ['Gradient Boosting Regressor', GradientBoostingRegressor()], ['XGBRegressor', xgb.XGBRegressor()]]
-        self.Neural_Regression_Models = [['MLP Regressor', MLPRegressor()]]
+        self.Classification_Models = [['Ridge Classifier', RidgeClassifier()], ['SGD Classifier', SGDClassifier()], ['Logistic Regression', LogisticRegression()], 
+        ['Passive Agressive Classifier', PassiveAggressiveClassifier()], ['SVC', svm.SVC()], ['KNN Classifier', KNeighborsClassifier()], ['Gaussian Process Classifier', GaussianProcessClassifier()],
+        ['GaussianNB', GaussianNB()], ['Decision Tree Classifier', DecisionTreeClassifier()]]
+        self.Ensemble_Classification_Models = [['Random Forest Classifier', RandomForestClassifier()], ['Ada Boost Classifier',AdaBoostClassifier()],
+        ['Gradient Boosting Classifier', GradientBoostingClassifier()]]
+        self.Neural_Classification_Models = [['MLP CLassifier', MLPClassifier()]]
 
     def __prepare_data(self): # Private Method 
         df = self.df[self.FeatureList].copy()
@@ -99,14 +102,14 @@ class ExploreModel:
 
         if self.EnsembleBoolean:
             if self.NeuralBoolean:
-                models = self.Regression_Models + self.Ensemble_Regression_Models + self.Neural_Regression_Models 
+                models = self.Classification_Models + self.Ensemble_Classification_Models + self.Neural_Classification_Models
             else:
-                models = self.Regression_Models + self.Ensemble_Regression_Models
+                models = self.Classification_Models + self.Ensemble_Classification_Models
         else:
             if self.NeuralBoolean:
-                models = self.Regression_Models + self.Neural_Regression_Models
+                models = self.Classification_Models + self.Neural_Classification_Models
             else:
-                models = self.Regression_Models
+                models = self.Classification_Models
 
         for i in tqdm(range(len(models))):
             name, model = models[i]
@@ -118,7 +121,13 @@ class ExploreModel:
             model_pipeline.fit(X_train, y_train)
 
             # Make predictions on the test set
-            y_pred = model_pipeline.predict(X_test)
+            if self.PredictProba:
+                try:
+                    y_pred = model_pipeline.predict_proba(X_test)[:,1]
+                except:
+                    y_pred = None
+            else:
+                y_pred = model_pipeline.predict(X_test)
 
             # Add to self.PredictedVal
             self.PredictedVal[name] = [y_test, y_pred]
