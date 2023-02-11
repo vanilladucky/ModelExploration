@@ -25,7 +25,8 @@ Execution
 
 .. code-block:: Python
 
-   from simplysklearn.model import ExploreModel
+   from simplysklearn.classification.classification import Classification
+   from simplysklearn.regression.regression import Regression
 
 
 Example
@@ -36,13 +37,9 @@ Classification
 
 .. code-block:: Python
 
-    import pandas as pd
     df = pd.read_csv('titanic.csv')
-    model = ExploreModel(df, feature_columns_list, 'Survived', PredictProba = False, 
-                        EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, 
-                        OutputType='classification')
+    model = Classification(df, feature_columns_list, target_column)
     model.fit()
-    model.calculate_accuracy()
     model.plot('accuracy_score')
     print(model.outlier_values)
 
@@ -51,12 +48,8 @@ Regression
 
 .. code-block:: Python
 
-    import pandas as pd
     df = pd.read_csv('housing_prices.csv')
-    model = ExploreModel(df, feature_columns_list, 'SalePrice', PredictProba = False, 
-                        EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, 
-                        OutputType='regression')
+    model = Regression(df, feature_columns_list, target_column)
     model.fit()
-    model.calculate_accuracy()
     model.plot('mean_squared_error')
     print(model.outlier_values)

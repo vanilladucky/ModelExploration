@@ -4,9 +4,11 @@ Model
 
 .. code-block:: Python
 
-   from simplysklearn.model import ExploreModel
-   ExploreModel(DataFrame, FeatureList, Target, PredictProba = False, EnsembleBoolean=True, 
-   NeuralBoolean=True, SplitRatio=0.3, OutputType='regression', Randomstate=42)
+   from simplysklearn.classification.classification import Classification
+   from simplysklearn.regression.regression import Regression
+   
+   Classification(DataFrame, FeatureList, Target, PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42)
+   Regression(DataFrame, FeatureList, Target, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42)
 
 Parameters 
 ===========
@@ -23,7 +25,7 @@ Parameters
      - names of the columns of the dataframe to be used as features, in the form of a list
    * - Target (*string*)
      - name of the column of the target variable
-   * - PredictProba (*boolean*)
+   * - PredictProba (*boolean* / Classification only)
      - whether we wish to use the predict_proba method. If model doesn't have predict_proba method, it won't produce any value for the metric suggested
    * - EnsembleBoolean (*boolean*)
      - whether you wish to include ensembling models 
@@ -31,8 +33,6 @@ Parameters
      - whether you wish to include neural network models
    * - SplitRatio (*int; [0,1]*)
      - the split ratio for train_test_split 
-   * - OutputType (*regression/classification*)
-     - whether you wish to test for a regression task or a classification task 
    * - Randomstate (*int*)
      - seed value for the random state used throughout the process
 
@@ -46,10 +46,8 @@ Attributes
 
    * - Attributes
      - Information
-   * - .fit()
+   * - .fit(numerical_method = StandardScaler(), categorical_method = OneHotEncoder(handle_unknown='ignore', sparse_output=False))
      - will prepare the dataset using one-hot-encoding, standard scaler and simple imputer. It will then fit the prepared dataset to the models and return the prediction values
-   * - .calculate_accuracy()
-     - will calculate the scores of models 
    * - .plot(metric_name(*string*))
      - will take in the name of the metric and will plot the values of the models accordingly using seaborn
    * - .outlier_values

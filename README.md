@@ -84,7 +84,7 @@ print(model.outlier_values)
 
 [Documentation](https://simplysklearn.readthedocs.io/en/latest/) can be accessed here.
 
-## Contrbuting
+## Contributing
 
 Contributions are very much welcomed from everyone! 
 
@@ -103,7 +103,7 @@ When you have created a pull request, we can take a look and improve on this pac
 ## Version History
 
 * 0.0.11
-    * Separation of Regression and Classification for clarify (2023.02.04)
+    * Separation of Regression and Classification for clarity (2023.02.04)
 
 * 0.0.5
     * Various regression bug fixes(2023.01.29)
