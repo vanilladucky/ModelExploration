@@ -88,7 +88,7 @@ print(model.outlier_values)
 
 Contributions are very much welcomed from everyone! 
 
-Just make sure to fork this repo, make changes and push.
+Just make sure to fork this repo, make changes and open a pull request.
 
 Or you are always welcome to contact me via email!
 
