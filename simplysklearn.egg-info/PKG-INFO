@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: simplysklearn
-Version: 0.1.0
+Version: 0.1.7
 Summary: Python package to automate machine learning process to showcase metric values for nearly all Scikit-Learn's models.
 Home-page: https://github.com/vanilladucky/simplysklearn
 Author: Kim Hyun Bin
@@ -70,8 +70,8 @@ The python package website can be accessed [here](https://pypi.org/project/simpl
 ### Executing program
 
 ```
-from simplysklearn.classification.classification import Classification
-from simplysklearn.regression.regression import Regression
+from simplysklearn import Classification
+from simplysklearn import Regression
 ```
 
 ## Classification Example 
@@ -116,11 +116,15 @@ When you have created a pull request, we can take a look and improve on this pac
 
 ## Version History
 
+* 0.1.0
+    * Fixes for Classification Module (2023.04.03)
+
 * 0.0.11
     * Separation of Regression and Classification for clarity (2023.02.04)
 
 * 0.0.5
     * Various regression bug fixes(2023.01.29)
+
 * 0.0.1
     * Initial Release (2023.01.28)
 

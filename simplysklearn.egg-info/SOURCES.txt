@@ -8,4 +8,5 @@ regression/regression.py
 simplysklearn.egg-info/PKG-INFO
 simplysklearn.egg-info/SOURCES.txt
 simplysklearn.egg-info/dependency_links.txt
+simplysklearn.egg-info/requires.txt
 simplysklearn.egg-info/top_level.txt

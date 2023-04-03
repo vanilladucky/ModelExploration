@@ -14,7 +14,7 @@ class Plot:
 
         for model in self.data: # model -> name of model
 
-            if self.metric_name in self.data[model]: # If predict_proba = True and model has no predict_proba property (no y_pred)
+            if self.metric_name in self.data[model] and self.data[model][self.metric_name] != None: # If predict_proba = True and model has no predict_proba property (no y_pred)
                 self.plot_data[model] = self.data[model][self.metric_name]
             else:
                 self.non_plot_data[model] = None
@@ -37,8 +37,8 @@ class Plot:
             if abs(val/next_val) > self.disppearing_ratio:
                 self.non_plot_data[model] = val
 
-        for model in self.non_plot_data:
-            del self.plot_data[model]
+        """for model in self.non_plot_data:
+            del self.plot_data[model]"""
 
         # Making a dataframe to use with plotly
         df = pd.DataFrame({'Model':list(self.plot_data.keys()), 'Values':list(self.plot_data.values())})

@@ -56,8 +56,8 @@ The python package website can be accessed [here](https://pypi.org/project/simpl
 ### Executing program
 
 ```
-from simplysklearn.classification.classification import Classification
-from simplysklearn.regression.regression import Regression
+from simplysklearn import Classification
+from simplysklearn import Regression
 ```
 
 ## Classification Example 
@@ -110,7 +110,7 @@ When you have created a pull request, we can take a look and improve on this pac
 
 * 0.0.5
     * Various regression bug fixes(2023.01.29)
-    
+
 * 0.0.1
     * Initial Release (2023.01.28)
 
