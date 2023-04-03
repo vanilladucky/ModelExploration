@@ -7,14 +7,12 @@ from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
 import xgboost as xgb
-from sklearn.linear_model import PassiveAggressiveClassifier, LogisticRegression, SGDClassifier, RidgeClassifier, LinearRegression, Ridge, Lasso, ElasticNet, BayesianRidge, ARDRegression, SGDRegressor, PassiveAggressiveRegressor, Perceptron
-from sklearn.gaussian_process import GaussianProcessRegressor, GaussianProcessClassifier
+from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet, BayesianRidge, ARDRegression, SGDRegressor, PassiveAggressiveRegressor, Perceptron
+from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn import svm
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.ensemble import GradientBoostingClassifier, AdaBoostClassifier, RandomForestClassifier, RandomForestRegressor, AdaBoostRegressor, GradientBoostingRegressor
-from sklearn.neural_network import MLPRegressor, MLPClassifier
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor, GradientBoostingRegressor
+from sklearn.neural_network import MLPRegressor
 from tqdm import tqdm
 
 from simplysklearn.metrics import *

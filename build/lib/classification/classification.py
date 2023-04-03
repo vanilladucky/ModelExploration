@@ -58,7 +58,7 @@ class Classification:
         ['Passive Agressive Classifier', PassiveAggressiveClassifier()], ['SVC', svm.SVC()], ['KNN Classifier', KNeighborsClassifier()],
         ['GaussianNB', GaussianNB()], ['Decision Tree Classifier', DecisionTreeClassifier()]]
         self.Ensemble_Classification_Models = [['Random Forest Classifier', RandomForestClassifier()], ['Ada Boost Classifier',AdaBoostClassifier()],
-        ['Gradient Boosting Classifier', GradientBoostingClassifier()]]
+        ['Gradient Boosting Classifier', GradientBoostingClassifier()], ['XGBClassifier', xgb.XGBClassifier()]]
         self.Neural_Classification_Models = [['MLP CLassifier', MLPClassifier()]]
 
     def __prepare_data(self, numerical_method = StandardScaler(), categorical_method = OneHotEncoder(handle_unknown='ignore', sparse_output=False)): # Private Method 

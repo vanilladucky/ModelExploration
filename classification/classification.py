@@ -3,17 +3,17 @@ import pandas as pd
 from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import make_pipeline, Pipeline
+from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
 import xgboost as xgb
-from sklearn.linear_model import PassiveAggressiveClassifier, LogisticRegression, SGDClassifier, RidgeClassifier, LinearRegression, Ridge, Lasso, ElasticNet, BayesianRidge, ARDRegression, SGDRegressor, PassiveAggressiveRegressor, Perceptron
+from sklearn.linear_model import PassiveAggressiveClassifier, LogisticRegression, SGDClassifier, RidgeClassifier
 from sklearn import svm
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.ensemble import GradientBoostingClassifier, AdaBoostClassifier, RandomForestClassifier, RandomForestRegressor, AdaBoostRegressor, GradientBoostingRegressor
-from sklearn.neural_network import MLPRegressor, MLPClassifier
+from sklearn.ensemble import GradientBoostingClassifier, AdaBoostClassifier, RandomForestClassifier
+from sklearn.neural_network import MLPClassifier
 from tqdm import tqdm
 
 from simplysklearn.metrics import Score
@@ -58,7 +58,7 @@ class Classification:
         ['Passive Agressive Classifier', PassiveAggressiveClassifier()], ['SVC', svm.SVC()], ['KNN Classifier', KNeighborsClassifier()],
         ['GaussianNB', GaussianNB()], ['Decision Tree Classifier', DecisionTreeClassifier()]]
         self.Ensemble_Classification_Models = [['Random Forest Classifier', RandomForestClassifier()], ['Ada Boost Classifier',AdaBoostClassifier()],
-        ['Gradient Boosting Classifier', GradientBoostingClassifier()]]
+        ['Gradient Boosting Classifier', GradientBoostingClassifier()], ['XGBClassifier', xgb.XGBClassifier()]]
         self.Neural_Classification_Models = [['MLP CLassifier', MLPClassifier()]]
 
     def __prepare_data(self, numerical_method = StandardScaler(), categorical_method = OneHotEncoder(handle_unknown='ignore', sparse_output=False)): # Private Method 
