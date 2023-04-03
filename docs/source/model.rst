@@ -4,8 +4,8 @@ Model
 
 .. code-block:: Python
 
-   from simplysklearn.classification.classification import Classification
-   from simplysklearn.regression.regression import Regression
+   from simplysklearn import Classification
+   from simplysklearn import Regression
    
    Classification(DataFrame, FeatureList, Target, PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42)
    Regression(DataFrame, FeatureList, Target, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42)
