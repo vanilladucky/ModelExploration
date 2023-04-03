@@ -102,6 +102,9 @@ When you have created a pull request, we can take a look and improve on this pac
 
 ## Version History
 
+* 0.1.0
+    * Fixes for Classification Module (2023.04.03)
+
 * 0.0.11
     * Separation of Regression and Classification for clarity (2023.02.04)
 
