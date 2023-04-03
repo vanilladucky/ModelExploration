@@ -18,7 +18,6 @@ from tqdm import tqdm
 from simplysklearn.metrics import *
 from simplysklearn.plot import *
 
-
 class Regression:
     def __init__(self, data, FeatureList, Target, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42):
         # Any possible parameters 
@@ -139,3 +138,11 @@ class Regression:
         self.outlier_values = plot.display()
 
         return  
+
+#-----------Testing Code-------------#
+"""import pandas as pd
+df = pd.read_csv('/Users/kimhyunbin/Documents/Python/My own project (Python)/simplysklearn/tests/regression.csv')
+model = Regression(df, df.columns.tolist()[1:-1], 'SalePrice', EnsembleBoolean=False, NeuralBoolean=False, SplitRatio=0.3)
+model.fit()
+model.plot('mean_squared_log_error')
+print(model.outlier_values)"""
