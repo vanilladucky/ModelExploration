@@ -8,7 +8,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
 import xgboost as xgb
 from sklearn.linear_model import PassiveAggressiveClassifier, LogisticRegression, SGDClassifier, RidgeClassifier, LinearRegression, Ridge, Lasso, ElasticNet, BayesianRidge, ARDRegression, SGDRegressor, PassiveAggressiveRegressor, Perceptron
-from sklearn.gaussian_process import GaussianProcessRegressor, GaussianProcessClassifier
 from sklearn import svm
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
@@ -17,9 +16,8 @@ from sklearn.ensemble import GradientBoostingClassifier, AdaBoostClassifier, Ran
 from sklearn.neural_network import MLPRegressor, MLPClassifier
 from tqdm import tqdm
 
-from simplysklearn.metrics import *
-from simplysklearn.plot import *
-
+from simplysklearn.metrics import Score
+from simplysklearn.plot import Plot
 
 class Classification:
     def __init__(self, data, FeatureList, Target, PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42):
@@ -57,7 +55,7 @@ class Classification:
         self.outlier_values = {}
 
         self.Classification_Models = [['Ridge Classifier', RidgeClassifier()], ['SGD Classifier', SGDClassifier()], ['Logistic Regression', LogisticRegression()], 
-        ['Passive Agressive Classifier', PassiveAggressiveClassifier()], ['SVC', svm.SVC()], ['KNN Classifier', KNeighborsClassifier()], ['Gaussian Process Classifier', GaussianProcessClassifier()],
+        ['Passive Agressive Classifier', PassiveAggressiveClassifier()], ['SVC', svm.SVC()], ['KNN Classifier', KNeighborsClassifier()],
         ['GaussianNB', GaussianNB()], ['Decision Tree Classifier', DecisionTreeClassifier()]]
         self.Ensemble_Classification_Models = [['Random Forest Classifier', RandomForestClassifier()], ['Ada Boost Classifier',AdaBoostClassifier()],
         ['Gradient Boosting Classifier', GradientBoostingClassifier()]]
@@ -113,6 +111,7 @@ class Classification:
 
         for i in tqdm(range(len(models))):
             name, model = models[i]
+            print(f"Fitting for model {name}\n")
 
             # Utilize the pipeline from earlier
             model_pipeline = make_pipeline(full_pipe, model)
@@ -124,7 +123,8 @@ class Classification:
             if self.PredictProba:
                 try:
                     y_pred = model_pipeline.predict_proba(X_test)[:,1]
-                except:
+                except: # When predict_proba fails 
+                    print(f"Predict Proba failed with {name} model\n")
                     y_pred = None
             else:
                 y_pred = model_pipeline.predict(X_test)
@@ -137,16 +137,27 @@ class Classification:
     def __calculate_accuracy(self):
 
         score = Score(self.PredictedVal, self.OutputType)    
-        self.Scores = score.calculate() # Contains dict{Name-of-model: {metrics_name:metrics_val} }
+        self.Scores = score.calculate() # Contains dict{Name-of-model: {metrics_name:metrics_val} 
         # self.Scores should be used as parameter to plot function
 
         return 
 
     def plot(self, metric): # Should plot the metrics
 
+        print(f"Calculating accuracy values for pedictions\n")
         self.__calculate_accuracy()
         plot = Plot(self.Scores, metric)
         plot.calculate()
         self.outlier_values = plot.display()
 
         return  
+
+
+#------------------Testing Code-----------------------#
+
+import pandas as pd
+df = pd.read_csv('/Users/kimhyunbin/Documents/Python/My own project (Python)/simplysklearn/tests/classification_2.csv')
+model = Classification(df, df.columns.tolist()[1:-1], 'Class', PredictProba = True, EnsembleBoolean=False, NeuralBoolean=False, SplitRatio=0.3)
+model.fit()
+model.plot('log_loss')
+print(model.outlier_values)

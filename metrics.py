@@ -69,10 +69,25 @@ class Score():
                     except:
                         self.res[key]['jaccard_score'] = None
 
-                    self.res[key]['roc_auc_score'] = roc_auc_score(y_true, y_pred)
-                    self.res[key]['log_loss'] = log_loss(y_true, y_pred)
-                    self.res[key]['average_precision_score'] = average_precision_score(y_true, y_pred)
-                    self.res[key]['brier_score_loss'] = brier_score_loss(y_true, y_true)
+                    try:
+                        self.res[key]['roc_auc_score'] = roc_auc_score(y_true, y_pred)
+                    except:
+                        self.res[key]['roc_auc_score'] = None
+
+                    try:
+                        self.res[key]['log_loss'] = log_loss(y_true, y_pred)
+                    except:
+                        self.res[key]['log_loss'] = None
+
+                    try:
+                        self.res[key]['average_precision_score'] = average_precision_score(y_true, y_pred)
+                    except:
+                        self.res[key]['average_precision_score'] = None
+                    
+                    try:
+                        self.res[key]['brier_score_loss'] = brier_score_loss(y_true, y_true)
+                    except:
+                        self.res[key]['brier_score_loss'] = None
 
                 except:
                     continue

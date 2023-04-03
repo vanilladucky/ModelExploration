@@ -14,10 +14,10 @@ class Plot:
 
         for model in self.data: # model -> name of model
 
-            if self.metric_name in self.data[model] and self.data[model][self.metric_name] == None: # If predict_proba = True and model has no predict_proba property (no y_pred)
-                self.non_plot_data[model] = None
-            else:
+            if self.metric_name in self.data[model]: # If predict_proba = True and model has no predict_proba property (no y_pred)
                 self.plot_data[model] = self.data[model][self.metric_name]
+            else:
+                self.non_plot_data[model] = None
 
         return self.plot_data
 
