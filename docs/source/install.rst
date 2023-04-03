@@ -25,8 +25,8 @@ Execution
 
 .. code-block:: Python
 
-   from simplysklearn.classification.classification import Classification
-   from simplysklearn.regression.regression import Regression
+   from simplysklearn. import Classification
+   from simplysklearn import Regression
 
 
 Example
