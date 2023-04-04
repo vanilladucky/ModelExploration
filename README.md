@@ -102,6 +102,9 @@ When you have created a pull request, we can take a look and improve on this pac
 
 ## Version History
 
+* 0.2.0 
+    * Major overhaul for organization (2023.04.04)
+    
 * 0.1.0
     * Fixes for Classification Module (2023.04.03)
 
