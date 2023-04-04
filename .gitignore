@@ -2,4 +2,3 @@ requirements.txt
 testing_codes.txt
 dist/
 __pycache__/
-images/
