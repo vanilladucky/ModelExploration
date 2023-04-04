@@ -3,21 +3,20 @@ import pandas as pd
 from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import make_pipeline, Pipeline
+from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
 import xgboost as xgb
-from sklearn.linear_model import PassiveAggressiveClassifier, LogisticRegression, SGDClassifier, RidgeClassifier, LinearRegression, Ridge, Lasso, ElasticNet, BayesianRidge, ARDRegression, SGDRegressor, PassiveAggressiveRegressor, Perceptron
+from sklearn.linear_model import PassiveAggressiveClassifier, LogisticRegression, SGDClassifier, RidgeClassifier
 from sklearn import svm
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.ensemble import GradientBoostingClassifier, AdaBoostClassifier, RandomForestClassifier, RandomForestRegressor, AdaBoostRegressor, GradientBoostingRegressor
-from sklearn.neural_network import MLPRegressor, MLPClassifier
-from tqdm import tqdm
+from sklearn.ensemble import GradientBoostingClassifier, AdaBoostClassifier, RandomForestClassifier
+from sklearn.neural_network import MLPClassifier
 
-from simplysklearn.metrics import Score
-from simplysklearn.plot import Plot
+from classification_metrics import Score
+from plot import Plot
 
 class Classification:
     def __init__(self, data, FeatureList, Target, PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42):
@@ -57,8 +56,10 @@ class Classification:
         self.Classification_Models = [['Ridge Classifier', RidgeClassifier()], ['SGD Classifier', SGDClassifier()], ['Logistic Regression', LogisticRegression()], 
         ['Passive Agressive Classifier', PassiveAggressiveClassifier()], ['SVC', svm.SVC()], ['KNN Classifier', KNeighborsClassifier()],
         ['GaussianNB', GaussianNB()], ['Decision Tree Classifier', DecisionTreeClassifier()]]
+
         self.Ensemble_Classification_Models = [['Random Forest Classifier', RandomForestClassifier()], ['Ada Boost Classifier',AdaBoostClassifier()],
-        ['Gradient Boosting Classifier', GradientBoostingClassifier()]]
+        ['Gradient Boosting Classifier', GradientBoostingClassifier()], ['XGBClassifier', xgb.XGBClassifier()]]
+
         self.Neural_Classification_Models = [['MLP CLassifier', MLPClassifier()]]
 
     def __prepare_data(self, numerical_method = StandardScaler(), categorical_method = OneHotEncoder(handle_unknown='ignore', sparse_output=False)): # Private Method 
@@ -109,7 +110,7 @@ class Classification:
             else:
                 models = self.Classification_Models
 
-        for i in tqdm(range(len(models))):
+        for i in range(len(models)):
             name, model = models[i]
             print(f"Fitting for model {name}\n")
 
@@ -136,7 +137,7 @@ class Classification:
 
     def __calculate_accuracy(self):
 
-        score = Score(self.PredictedVal, self.OutputType)    
+        score = Score(self.PredictedVal)    
         self.Scores = score.calculate() # Contains dict{Name-of-model: {metrics_name:metrics_val} 
         # self.Scores should be used as parameter to plot function
 
@@ -154,10 +155,9 @@ class Classification:
 
 
 #------------------Testing Code-----------------------#
-
-"""import pandas as pd
-df = pd.read_csv('/Users/kimhyunbin/Documents/Python/My own project (Python)/simplysklearn/tests/classification_2.csv')
-model = Classification(df, df.columns.tolist()[1:-1], 'Class', PredictProba = True, EnsembleBoolean=False, NeuralBoolean=False, SplitRatio=0.3)
+import pandas as pd
+df = pd.read_csv('/Users/kimhyunbin/Documents/Python/My own project (Python)/simplysklearn/testing_datasets/classification_2.csv')
+model = Classification(df, df.columns.tolist()[1:-1], 'Class', PredictProba = True, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3)
 model.fit()
 model.plot('log_loss')
-print(model.outlier_values)"""
+print(model.outlier_values)
