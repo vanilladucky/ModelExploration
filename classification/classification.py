@@ -15,8 +15,8 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import GradientBoostingClassifier, AdaBoostClassifier, RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 
-from classification_metrics import Score
-from plot import Plot
+from simplysklearn.classification.classification_metrics import Score
+from simplysklearn.classification.plot import Plot
 
 class Classification:
     def __init__(self, data, FeatureList, Target, PredictProba = False, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42):

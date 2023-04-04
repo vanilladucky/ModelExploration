@@ -15,8 +15,8 @@ from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor, GradientB
 from sklearn.neural_network import MLPRegressor
 from tqdm import tqdm
 
-from regression_metrics import Score
-from plot import Plot
+from simplysklearn.regression.regression_metrics import Score
+from simplysklearn.regression.plot import Plot
 
 class Regression:
     def __init__(self, data, FeatureList, Target, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42):
