@@ -7,7 +7,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
 import xgboost as xgb
-from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet, BayesianRidge, ARDRegression, SGDRegressor, PassiveAggressiveRegressor, Perceptron
+from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet, BayesianRidge, SGDRegressor, PassiveAggressiveRegressor
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn import svm
 from sklearn.tree import DecisionTreeRegressor
@@ -15,9 +15,8 @@ from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor, GradientB
 from sklearn.neural_network import MLPRegressor
 from tqdm import tqdm
 
-from simplysklearn.metrics import *
-from simplysklearn.plot import *
-
+from regression_metrics import Score
+from plot import Plot
 
 class Regression:
     def __init__(self, data, FeatureList, Target, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3, Randomstate=42):
@@ -51,12 +50,14 @@ class Regression:
         self.outlier_values = {}
 
         self.Regression_Models = [['Linear Regression', LinearRegression()], ['Ridge', Ridge()], ['Lasso', Lasso()], ['ElasticNet', ElasticNet()], 
-        ['Bayesian Ridge', BayesianRidge()], ['ARDRegression', ARDRegression()], ['SGDRegressor', SGDRegressor()], 
-        ['Passive Aggressive Regressor', PassiveAggressiveRegressor()], ['Perceptron', Perceptron()], ['SVR', svm.SVR()], ['Gaussian Process Regressor', GaussianProcessRegressor()], 
-        ['Decision Tree Regressor', DecisionTreeRegressor()]]
+        ['Bayesian Ridge', BayesianRidge()], ['SGDRegressor', SGDRegressor()], 
+        ['Passive Aggressive Regressor', PassiveAggressiveRegressor()],['Decision Tree Regressor', DecisionTreeRegressor()]]
+        # removed ['SVR', svm.SVR()], ['Gaussian Process Regressor', GaussianProcessRegressor()], 
+
         self.Ensemble_Regression_Models = [['Random Forest Regressor', RandomForestRegressor()], ['Ada Boost Regressor', AdaBoostRegressor()],
         ['Gradient Boosting Regressor', GradientBoostingRegressor()], ['XGBRegressor', xgb.XGBRegressor()]]
-        self.Neural_Regression_Models = [['MLP Regressor', MLPRegressor()]]
+        
+        self.Neural_Regression_Models = [['MLP Regressor', MLPRegressor(max_iter = 500, solver='sgd', learning_rate = 'adaptive', random_state = self.RandomState, early_stopping = True, validation_fraction = 0.2)]]
 
     def __prepare_data(self, numerical_method = StandardScaler(), categorical_method = OneHotEncoder(handle_unknown='ignore', sparse_output=False)): # Private Method 
         df = self.df[self.FeatureList].copy()
@@ -106,8 +107,9 @@ class Regression:
             else:
                 models = self.Regression_Models
 
-        for i in tqdm(range(len(models))):
+        for i in range(len(models)):
             name, model = models[i]
+            print(f"Fitting for model {name}\n")
 
             # Utilize the pipeline from earlier
             model_pipeline = make_pipeline(full_pipe, model)
@@ -125,7 +127,7 @@ class Regression:
 
     def __calculate_accuracy(self):
 
-        score = Score(self.PredictedVal, self.OutputType)    
+        score = Score(self.PredictedVal)    
         self.Scores = score.calculate() # Contains dict{Name-of-model: {metrics_name:metrics_val} }
         # self.Scores should be used as parameter to plot function
 
@@ -139,3 +141,4 @@ class Regression:
         self.outlier_values = plot.display()
 
         return  
+
