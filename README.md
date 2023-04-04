@@ -30,8 +30,8 @@ The main usage should be to assist the user by assessing the performances of myr
 
 ![image](https://github.com/vanilladucky/ModelExploration/blob/main/images/modelflow.png)
 
-* Prepares datatset by takeing care of categorical feature by one-hot-encoding and numerical feature by scaling.
-* Fits the engineered dataset on myriad of Scikit-Learn models. 
+* Prepares datatset by taking care of categorical feature by one-hot-encoding and numerical feature by scaling.
+* Automatically fits the engineered dataset on myriad of Scikit-Learn models. 
 * Depending on what metric you want to observe, will plot you a colorful comparison of metrics of different models. 
 
 ## Future Improvements 
