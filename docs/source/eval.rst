@@ -66,7 +66,7 @@ Classification metrics
      - 'roc_auc_score'
    * - `log loss <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html#sklearn.metrics.log_loss>`_
      - 'log_loss'
-   * - `average precision score<https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score>`_
+   * - `average precision score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score>`_
      - 'average_precision_score'
    * - `brier score loss <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html#sklearn.metrics.brier_score_loss>`_
      - 'brier_score_loss'
