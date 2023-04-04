@@ -17,7 +17,9 @@ setuptools.setup(
                       'scikit-learn',
                       'seaborn',
                       'matplotlib',
-                      'tqdm'],
+                      'tqdm', 
+                      'xgboost',
+                      ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
