@@ -28,6 +28,8 @@ The main usage should be to assist the user by assessing the performances of myr
 
 ## What it provides
 
+![image](https://github.com/vanilladucky/ModelExploration/blob/main/images/modelflow.png)
+
 * Prepares datatset by takeing care of categorical feature by one-hot-encoding and numerical feature by scaling.
 * Fits the engineered dataset on myriad of Scikit-Learn models. 
 * Depending on what metric you want to observe, will plot you a colorful comparison of metrics of different models. 
