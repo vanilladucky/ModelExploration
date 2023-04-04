@@ -22,6 +22,7 @@ class Plot:
         return self.plot_data
 
     def display(self):
+
         self.plot_data = dict(sorted(self.plot_data.items(), key=lambda item: item[1]* -1))
 
         # We have to filter out those values where it is too big/small so that they don't skew the plot O(N)
@@ -44,23 +45,13 @@ class Plot:
     
         sns.set_theme()
         sns.set_context("paper")
-        ax = sns.barplot(df, x='Values', y='Model').set(title=f'{" ".join(self.metric_name.split("_"))}')
+        ax = sns.barplot(df, x='Values', y='Model')
+        ax.bar_label(ax.containers[0])
+        ax.set_title(f'{" ".join(self.metric_name.split("_"))}')
 
         # Return non plottable data
         if len(self.non_plot_data) > 0:
-            print(f"There were {len(self.non_plot_data)} number of non plottable data")
+            print(f"There were {len(self.non_plot_data)} number of non plottable data\n")
 
         plt.show()
-        return self.non_plot_data if len(self.non_plot_data) > 0 else "No data points were removed"
-
-
-
-"""
-# Testing code
-
-hi = {'Linear Regression': 5.945477578686267e+30, 'Gaussian Process Regressor': 38862842948.98595, 'MLP Regressor': 35413863580.22882, 'SVR': 7197385705.765231, 'Perceptron': 3634079418.0570774, 'Decision Tree Regressor': 2015704715.13242, 'ElasticNet': 1139044333.7945106, 'Ada Boost Regressor': 1114901189.166725, 'SGDRegressor': 963807765.7846137, 'ARDRegression': 881823520.212382, 'Lasso': 863589220.5745481, 'Bayesian Ridge': 862270354.5060233, 'Ridge': 814237316.0583718, 
-'XGBRegressor': 757239500.2347634, 'Random Forest Regressor': 739429472.215051, 'Passive Aggressive Regressor': 731582371.3055538, 'Gradient Boosting Regressor': 633820421.5121104}
-tmp = Plot(hi, 'mean_squared_error')
-tmp.display()
-
-"""
+        return self.non_plot_data if len(self.non_plot_data) > 0 else "No data points were removed\n"
