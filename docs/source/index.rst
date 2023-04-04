@@ -11,6 +11,7 @@ Welcome to simplysklearn's documentation!
 
    install
    model
+   eval
    future
 
 
