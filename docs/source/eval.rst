@@ -17,7 +17,7 @@ Regression metrics
    :header-rows: 1
 
    * - Parameter
-     - Information
+     - String format
    * - `explained variance <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html#sklearn.metrics.explained_variance_score>`_
      - 'explained_variance'
    * - `max error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.max_error.html#sklearn.metrics.max_error>`_
@@ -49,7 +49,7 @@ Classification metrics
    :header-rows: 1
 
    * - Parameter
-     - Information
+     - String format
    * - `accuracy score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html#sklearn.metrics.accuracy_score>`_
      - 'accuracy_score'
    * - `balanced accuracy score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.balanced_accuracy_score.html#sklearn.metrics.balanced_accuracy_score>`_
@@ -66,7 +66,7 @@ Classification metrics
      - 'roc_auc_score'
    * - `log loss <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html#sklearn.metrics.log_loss>`_
      - 'log_loss'
-   * - `average precision score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score>`_
+   * - `average precision score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html#sklearn.metrics.average_precision_score>`_
      - 'average_precision_score'
    * - `brier score loss <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html#sklearn.metrics.brier_score_loss>`_
      - 'brier_score_loss'
