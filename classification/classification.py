@@ -154,10 +154,3 @@ class Classification:
         return  
 
 
-#------------------Testing Code-----------------------#
-import pandas as pd
-df = pd.read_csv('/Users/kimhyunbin/Documents/Python/My own project (Python)/simplysklearn/testing_datasets/classification_2.csv')
-model = Classification(df, df.columns.tolist()[1:-1], 'Class', PredictProba = True, EnsembleBoolean=True, NeuralBoolean=True, SplitRatio=0.3)
-model.fit()
-model.plot('log_loss')
-print(model.outlier_values)
