@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     
 setuptools.setup(
     name="simplysklearn", 
-    version="0.2.3",
+    version="0.2.4",
     author="Kim Hyun Bin",
     author_email="KIMH0004@e.ntu.edu.sg",
     description="Python package to automate machine learning process to showcase metric values for nearly all Scikit-Learn's models.",
